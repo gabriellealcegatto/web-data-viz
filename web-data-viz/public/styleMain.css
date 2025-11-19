@@ -1,0 +1,159 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    width: 100%;
+    height: 5vh;
+}
+
+.titulo1{
+    font-size: 21px;
+     color: #E85C70;
+    margin-left: 3%;
+}
+
+.botoes{
+    margin-top: 2%;
+    margin-left: 60%;
+}
+.botoes button{
+    margin-right: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.botoes span{
+      font-weight: bold;
+        text-decoration: underline;
+    color: #E85C70;
+    font-size: 20px;
+}
+
+
+.texto{
+    margin-top: -20px;
+    color:white;
+    display: flex;
+    justify-content: center;
+}
+
+.MainIMG{
+  margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80vh;
+     border-top: 3px solid #E85C70; 
+    background-image: url("https://m.media-amazon.com/images/I/81D1orYEzSL.jpg");
+    background-position: center; 
+}
+
+.linha2{
+  background-color: #E85C70;
+  height: 3px;
+
+}
+
+.text{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 30vh;
+}
+
+.text span{
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #EDEDED; 
+  padding: 50px;
+  border-left: 3px solid #E85C70;
+  border-bottom: 3px solid #E85C70; 
+  border-top: 3px solid #E85C70; 
+  max-width: 45%;
+  margin-top: 3%;
+  backdrop-filter: blur(6px); 
+  min-height: 470px;
+}
+
+.fotoText{
+    margin-top: 3%;
+    width: 55%;
+    height: 60.3vh;
+    background-image: url("https://imageswscdn.wslojas.com.br/files/25539/MED_PROD_625037158751.jpg");
+    background-position: center; 
+     border-right: 3px solid #E85C70; 
+        border-bottom: 3px solid #E85C70; 
+        border-top: 3px solid #E85C70;
+
+}
+
+.containerBi{
+  display: flex;
+  flex-direction: row;
+  margin-top: 22%;
+    background-image: url("https://m.media-amazon.com/images/I/8125NO9jxAL._UF894,1000_QL80_.jpg");
+    background-repeat:no-repeat;
+    border: 3px solid #E85C70;
+  background-position: 95%;
+  background-color: #EAE5D9;
+}
+
+.textoBi{
+  background-color: black;
+   font-size: 18px;
+  line-height: 1.8;
+  width: 50.3%;
+  font-family: "Montserrat", sans-serif;
+  font-size: smaller;
+  color: #EDEDED; 
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px); 
+  min-height: 470px;
+  line-height: 1.8;
+}
+
+.textoBi h1{
+  font-weight: bold;
+  text-decoration: underline;
+  margin-left: 35%;
+}
+
+.textoBi h2{
+  margin-left: 5%;
+  width: 90%;
+}
+
+
+
+.footer {
+  margin-top: 3.6%;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(6px);
+  color: #EDEDED;
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 3px solid #E85C70;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 -10px 20px rgba(255, 255, 255, 0.05);
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.footer strong {
+  color: #E85C70;
+}
+
+
