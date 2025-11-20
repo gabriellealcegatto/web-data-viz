@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-       <link rel="stylesheet" href="./styleMain.css">
+       <link rel="stylesheet" href="./css/styleMain.css">
 </head>
 <body>
         <div class="header">
@@ -13,9 +13,8 @@
             </div>
 
             <div class="botoes">
-            <button onclick="musicar()"><span>Músicas</span></button>
+            <button onclick="musicar()"><span>Álbuns</span></button>
             <button onclick="entrar()"><span>Entrar</span></button>
-            <button onclick="sobre()"><span>Sobre</span></button>
         </div>
         </div>
 
@@ -71,6 +70,11 @@
 
 function entrar(){
       window.location.href = "login.html"
+}
+
+
+function musicar(){
+  window.location.href = "telaAlbuns.html"
 }
 
 </script>

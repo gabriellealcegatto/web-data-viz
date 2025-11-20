@@ -1,0 +1,167 @@
+
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    width: 100%;
+    height: 10vh;
+}
+
+.titulo1{
+    font-size: 21px;
+     color: #E85C70;
+    margin-left: 3%;
+}
+
+.botoes{
+    margin-top: 2%;
+    margin-left: 60%;
+}
+.botoes button{
+    margin-right: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.botoes span{
+      font-weight: bold;
+        text-decoration: underline;
+    color: #E85C70;
+    font-size: 20px;
+}
+
+.Titulo{
+display: flex;
+flex-direction: row;
+justify-content: center;
+height: 10vh;
+border-bottom: 3px solid white; ;
+border-top: 3px solid white; ;
+background-color: black;
+}
+
+.Titulo h1{
+    display: flex;
+    align-items: center;
+       font-size: 50px;
+     color: #E85C70;
+       font-family: "Montserrat", sans-serif;
+}
+
+.container{
+    background-image: url("https://wallpapers.com/images/hd/marilyn-manson-02yer13wags8eey5.jpg");
+        background-size: cover;
+}
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.top button{
+    margin-top: 5%;
+    height: 230px;
+    width: 210px;
+    border-radius: 10%;
+    cursor: pointer;
+    border: 3px solid white;
+}
+
+
+#porta{
+    background-image: url("https://www.tenhomaisdiscosqueamigos.com/wp-content/uploads/2018/08/marilyn-manson-portrait-of-an-american-family.jpg");
+    background-size: cover;
+}
+
+#ant{
+    background-image: url("https://i.discogs.com/mCtEtGkGB46T0HpMkSARQ-TtMgV2buF2a8uATUeLhXE/rs:fit/g:sm/q:90/h:538/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwMDMx/NjYtMTY1NzI4OTUz/MC03Njg4LmpwZWc.jpeg") ;
+    background-size: cover;
+}
+
+#mec{
+    background-image: url("https://m.media-amazon.com/images/I/81D1orYEzSL.jpg");
+     background-size: cover;
+}
+
+#hol{
+      background-image: url("https://upload.wikimedia.org/wikipedia/en/9/91/Marilyn_Manson_-_Holy_Wood.png");
+     background-size: cover;
+}
+
+#golden{
+       background-image: url("https://upload.wikimedia.org/wikipedia/en/d/db/Marilyn_Manson_-_The_Golden_Age_of_Grotesque.png");
+     background-size: cover;
+}
+
+
+.mid{
+     display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 5%;
+}
+
+.mid button{
+        height: 230px;
+    width: 210px;
+    border-radius: 10%;
+    cursor: pointer;
+   border: 3px solid white;;
+}
+
+
+#eat{
+      background-image: url("https://upload.wikimedia.org/wikipedia/en/d/db/Marilyn_Manson_-_The_Golden_Age_of_Grotesque.png");
+     background-size: cover;
+}
+
+
+#theHigh{
+      background-image: url("https://m.media-amazon.com/images/I/610utuFNpfL._SY200_QL15_.jpg");
+     background-size: cover;
+}
+
+
+.bottom{
+        display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+        margin-top: 5%;
+}
+
+
+.bottom button{
+        height: 230px;
+    width: 210px;
+    border-radius: 10%;
+    cursor: pointer;
+        border: 3px solid white;
+    margin-bottom: 5%;
+}
+
+#born{
+    background-image: url("https://upload.wikimedia.org/wikipedia/pt/2/2d/2153649.jpg");
+     background-size: cover;
+}
+
+#thePale{
+    background-image: url("https://uploads.tenhomaisdiscosqueamigos.com/2015/03/marilyn-manson-the-pale-emperor.jpg");
+     background-size: cover;
+}
+
+#heaven{
+    background-image: url("https://upload.wikimedia.org/wikipedia/en/3/3a/Marilyn_Manson_-_Heaven_Upside_Down.png");
+     background-size: cover;
+}
+
+#weAre{
+    background-image: url("https://upload.wikimedia.org/wikipedia/pt/8/87/We_Are_Chaos_-_Marilyn_Manson.png");
+     background-size: cover;
+}
+
+#one{
+    background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/One_Assassination_Under_God.jpg/250px-One_Assassination_Under_God.jpg");
+     background-size: cover;
+}
