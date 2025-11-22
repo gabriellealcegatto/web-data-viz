@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./telaAlbuns.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="titulo1">
+            <h1>Marilyn Manson</h1>
+        </div>
+
+        <div class="botoes">
+            <button onclick="dash()"><span>Métricas</span></button>
+            <button onclick="sobre()"><span>Sair</span></button>
+        </div>
+    </div>
+
+    <div class="Titulo">
+        <h1>Álbuns</h1>
+    </div>
+    <div class="container">
+        <div class="main">
+            <div class="top">
+                <div class="divinha">
+                    <button id="porta" onclick="portrait()"></button>
+                    <input type="text" id="input_portait" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(0)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+                <div class="divinha">
+                    <button id="ant" onclick="anti()"></button>
+                    <input type="text" id="input_anti" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(1)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+                <div class="divinha">
+                    <button id="mec" onclick="mechanical()"></button>
+                    <input type="text" id="input_mechanical" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(2)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+                <div class="divinha">
+                    <button id="hol" onclick="holy()"></button>
+                    <input type="text" id="input_holy" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(3)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+                <div class="divinha">
+                    <button id="golden" onclick="goldenAge()"></button>
+                    <input type="text" id="input_goldenAge" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(4)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="mid">
+                <div class="divinha">
+                    <button id="eat" onclick="eatMe()"></button>
+                    <input type="text" id="input_eatMe" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(5)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+                <div class="divinha">
+                    <button id="theHigh" onclick="theHigh()"></button>
+                    <input type="text" id="input_TheHigh" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(6)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+
+                <div class="divinha">
+                    <button id="born" onclick="nascer()"></button>
+                    <input type="text" id="input_nascer" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(7)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+                <div class="divinha">
+                    <button id="thePale" onclick="palear()"></button>
+                    <input type="text" id="input_palear" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(8)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+                <div class="divinha">
+                    <button id="heaven" onclick="heaven()"></button>
+                    <input type="text" id="input_heaven" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(9)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+                <div class="divinha">
+                    <button id="weAre" onclick="ser()"></button>
+                    <input type="text" id="input_ser" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(10)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+                <div class="divinha">
+                    <button id="one" onclick="one()"></button>
+                    <input type="text" id="input_one" placeholder="Quantas vezes você escutou?">
+                    <div class="btn">
+                        <button onclick="calcular(11)">
+                            <h2>Enviar</h2>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+ <div class="footer">
+  <div class="footer-content">
+    <p>© 2025 Site sobre Marilyn Manson — Projeto acadêmico</p>
+    <p>Inspirado no álbum <strong>Mechanical Animals</strong></p>
+  </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+
+    var listaAlbuns = [
+        document.getElementById("input_portait"),    //0
+        document.getElementById("input_anti"),       //1
+        document.getElementById("input_mechanical"), //2
+        document.getElementById("input_holy"),       //3
+        document.getElementById("input_goldenAge"),  //4
+        document.getElementById("input_eatMe"),      //5
+        document.getElementById("input_TheHigh"),    //6
+        document.getElementById("input_nascer"),     //7
+        document.getElementById("input_palear"),     //8
+        document.getElementById("input_heaven"),     //9
+        document.getElementById("input_ser"),        //10
+        document.getElementById("input_one")         //11
+    ]
+    function entrar() {
+        window.location.href = "login.html"
+    }
+
+    function sobre() {
+        window.location.href = "../index.html"
+    }
+
+
+    function calcular(fkAlbum) {
+        console.log("indice lista", fkAlbum)
+        var vezes = Number(listaAlbuns[fkAlbum].value)
+        console.log("valor do input", vezes)
+       fkAlbum +=1;
+            fetch("/album/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    vezesServer: vezes,
+                    fkUsuario: sessionStorage.ID_USUARIO,
+                    fkAlbumServer: fkAlbum,
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+
+ 
+                    } else {
+                        throw "Houve um erro ao calcular!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+
+            return false;
+        }
+
+    
+
+function dash(){
+     window.location.href = "dashMain.html"
+}
+
+
+
+</script>

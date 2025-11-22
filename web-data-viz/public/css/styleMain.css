@@ -20,20 +20,20 @@ body{
 
 .botoes{
     margin-top: 2%;
-    margin-left: 60%;
+    margin-left: 70%;
 }
 .botoes button{
-    margin-right: 50px;
-    background: none;
+    margin-right: 20px;
+    background: #E85C70;;
     border: none;
     cursor: pointer;
+    border-radius: 25px;
 }
 
 .botoes span{
       font-weight: bold;
-        text-decoration: underline;
-    color: #E85C70;
-    font-size: 20px;
+    color: black;
+    font-size: 35px;
 }
 
 

@@ -1,0 +1,122 @@
+.header2{
+    display: flex;
+    flex-direction: row;
+ 
+    background-color: black;
+    width: 100%;
+    height: 10vh;
+}
+
+.header2 h1{
+    display: flex;
+ margin-top: 1%;
+        font-size: 60px;
+     color: #E85C70;
+    margin-left: 3%;
+}
+
+
+.botoes{
+    display: flex;
+    margin-left: 65%;
+}
+
+.botoes button{
+    width: 90px;
+     justify-content: space-evenly;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+         font-weight: bold;
+        text-decoration: underline;
+    color: #E85C70;
+    font-size: 20px;
+}
+.container{
+width: 100%;
+height: 10vh;
+
+}
+
+.graficos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.graficoColuna{
+    display: flex;
+    height: 40vh;
+    width: 50%;
+    background-color: white;
+    border-radius: 12px;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+.graficoBola{
+    display: flex;
+    height: 40vh;
+    width: 50%;
+
+    border-radius: 12px;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.KPIS{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 50vh;
+}
+
+
+.kpi1{
+    height: 60%;
+    width: 30%;
+    background-color: black;
+    border-radius: 30px;
+}
+
+
+.kpi2{
+    height: 60%;
+    width: 30%;
+    background-color: black;
+    border-radius: 30px;
+}
+
+.KPIS h2{
+color: white;
+margin-left: 15%;
+}
+
+
+.footer {
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(6px);
+  color: #EDEDED;
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 3px solid #E85C70;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 -10px 20px rgba(255, 255, 255, 0.05);
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.footer strong {
+  color: #E85C70;
+}
+
+
+

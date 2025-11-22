@@ -23,7 +23,7 @@
             </div>
 
             <div class="botoes">
-            <button onclick="musicar()"><span>Álbuns</span></button>
+
             <button onclick="sobre()"><span>Sobre</span></button>
         </div>
         </div>
@@ -32,15 +32,15 @@
         <span>Email:</span><br>
         <input type="text" id="email_input"><br>
         <span>Senha:</span><br>
-        <input type="text" id="senha_input"><br>
+        <input type="password" id="senha_input"><br>
         <button onclick="entrar()"><h2>Entrar</h2></button><br>
         <div class="msgm">
-        <span>Ainda não tem uma conta? </span><button onclick="clicar()"><h2>Cliaque aqui<h2></button>
+        <span>Ainda não tem uma conta? </span><button onclick="clicar()"><h2>Clique aqui<h2></button>
         </div>
     </div>
 </div>
 
- <div class="footer">
+<div class="footer">
   <div class="footer-content">
     <p>© 2025 Site sobre Marilyn Manson — Projeto acadêmico</p>
     <p>Inspirado no álbum <strong>Mechanical Animals</strong></p>
@@ -48,9 +48,7 @@
     <!--footer fim-->
 
 </body>
-
 </html>
-
 <script>
 
 
@@ -65,7 +63,7 @@
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+      
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -89,13 +87,14 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
+                    sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+             
 
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./dashboard/telaAlbuns.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -106,7 +105,6 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
                 });
             }
 
@@ -117,10 +115,7 @@
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
+  
 
     function clicar(){
         window.location.href = "cadastro.html"
