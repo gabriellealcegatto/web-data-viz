@@ -9,7 +9,7 @@ function listar() {
 
 function cadastrar(vezes, fkUsuario, fkAlbum) {
     var instrucao = `
-        INSERT INTO quantidade (vezes, fkUsuario, fkAlbum) VALUES ('${vezes}','${fkUsuario}','${fkAlbum}');
+        INSERT INTO quantidade (vezes, fkUsuario, fkAlbum) VALUES (${vezes},${fkUsuario},${fkAlbum});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

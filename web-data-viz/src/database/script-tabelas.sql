@@ -1,62 +1,54 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
 
 CREATE DATABASE aquatech;
 
 USE aquatech;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
+
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	senha VARCHAR(50)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE album (
+idAlbum INT PRIMARY KEY AUTO_INCREMENT, 
+nomeAlbum VARCHAR(45),
+tempo INT
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+INSERT INTO album VALUES
+(DEFAULT, 'Antichrist Superstar', 61),
+(DEFAULT, 'Mechanical Animals', 77),
+(DEFAULT, 'Holy Wood', 73),
+(DEFAULT, 'The Golden Age of Grotesque', 57),
+(DEFAULT, 'Eat Me, Drink Me', 52),
+(DEFAULT, 'The High End of Low', 76),
+(DEFAULT, 'Born Villain', 50),
+(DEFAULT, 'The Pale Emperor', 52),
+(DEFAULT, 'Heaven Upside Down', 47),
+(DEFAULT, 'We Arw Chaos', 42),
+(DEFAULT, 'One Assassination Under God', 42);
+
+
+CREATE TABLE quantidade(
+idVezes INT PRIMARY KEY AUTO_INCREMENT,
+vezes INT,
+fkUsuario INT,
+fkAlbum INT,
+CONSTRAINT vezesUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
+CONSTRAINT vezesAlbum FOREIGN KEY (fkAlbum) REFERENCES album (idAlbum)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+
+
+SELECT vezes,
+nome2
+ FROM quantidade
+JOIN album ON fkAlbum = album.idAlbum
+WHERE fkUsuario = 1;
+
+

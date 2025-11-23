@@ -6,154 +6,190 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-     <link rel="stylesheet" href="./dash.css">
+    <link rel="stylesheet" href="./dash.css">
 </head>
 
 <body>
 
-<div class="header2">
+    <div class="header2">
 
-    <h1>
-        Fan Mason
-    </h1>
-<div class="botoes">
-    <button onclick="album()">Álbuns</button>
-    <button onclick="sobre()">Sair</button>
-</div>
-</div>
-<div class="container">
-
-<div class="graficos">
-    <div class="graficoColuna">
-
-    <canvas id="myChart"></canvas>
+        <h1>
+            Fan Mason
+        </h1>
+        <div class="botoes">
+            <button onclick="album()">Álbuns</button>
+            <button onclick="sobre()">Sair</button>
+        </div>
     </div>
-    <div class="graficoBola">
+    <div class="container">
 
-    <canvas id="myChart2"></canvas>
-    </div>
-</div>
-<div class="KPIS">
-<div class="kpi1">
+        <div class="graficos">
+            <div class="graficoColuna">
 
-<h2>
-    O álbum que você mais escutou foi:
-    <div id="maisEscutado"></div>
-</h2>
-</div>
-<div class="kpi2">
-    <h2>
-        Seu tempo total escutando o artista:
-        <div id="tempoEscutado">
-    </h2>
-</div>
-</div>
+                <canvas id="myChart"></canvas>
+            </div>
+  
+        </div>
+        <div class="KPIS">
+            <div class="kpi1">
+
+                <h2>
+                    O álbum que você mais escutou foi:
+                    <div id="maisEscutado"></div>
+                </h2>
+            </div>
+            <div class="kpi2">
+                <h2>
+                    Seu tempo total escutando o artista:
+                    <div id="tempoEscutado">
+                </h2>
+            </div>
+        </div>
 
 
- <div class="footer">
-  <div class="footer-content">
-    <p>© 2025 Site sobre Marilyn Manson — Projeto acadêmico</p>
-    <p>Inspirado no álbum <strong>Mechanical Animals</strong></p>
-  </div>
+        <div class="footer">
+            <div class="footer-content">
+                <p>© 2025 Site sobre Marilyn Manson — Projeto acadêmico</p>
+                <p>Inspirado no álbum <strong>Mechanical Animals</strong></p>
+            </div>
 </body>
 
 <script>
-const labels =['1','2','3','4','5','6','7','8','9','10','11','12'];
-
-const data = {
-    labels: labels,
-    datasets: [{
-        label: 'Album',
-        backgroundColor: 'rgb(205, 10, 100)',
-        borderColor: 'rgb(255, 0, 0)',
-        data: [22, 24, 27, 23, 20, 18],
-    }
-]
-};
 
 
+    let proximaAtualizacao;
+    var idUsuario = sessionStorage.ID_USUARIO;
 
+    window.onload = obterDadosGrafico(idUsuario);
+    // O gráfico é construído com três funções:
+    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
 
-const config = {
-    type: 'bar',
-    data: data,
-    options: {
-        scales: {
-            y: {
-                min: 0,  
-                max: 100,     
-                ticks: {
-                    stepSize: 10, 
-                    color: 'black', 
-                    font: {
-                        size: 12, 
-                        weight: 'bold'
-                    }
-                },
-                grid: {
-                    color: 'rgba(0, 0, 0, 0.1)'
-                },
-               
-            },
-            x: {
-               
+    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function obterDadosGrafico(idUsuario) {
+
+        fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idUsuario);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
             }
-        }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
     }
-};
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta, idUsuario) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Horas',
+                data: [],
+                fill: false,
+                backgroundColor: 'rgb(205, 10, 100)',
+                borderColor: 'rgb(255, 0, 0)'
+            }
+            ]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.nomeAlbum);
+            dados.datasets[0].data.push(registro.vezes);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                scales: {
+                    y: {
+                        min: 0,
+                        ticks: {
+                            stepSize: 10,
+                            color: 'black',
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(100, 10, 100, 0.1)'
+                        },
+
+                    },
+                    x: {
+                        
+                    }
+                }
+            }
+        };
 
 
-const config2 = {
-  type: 'doughnut',
-  data: data,
-};
+        let myChart = new Chart(
+            document.getElementById(`myChart`),
+            config
+        );
+
+    }
 
 
 
+   
 
 
-const data2 = {
-  labels: [
-    'Red',
-    'Blue',
-    'Yellow'
-  ],
-  datasets: [{
-    label: 'My First Dataset',
-    data: [300, 50, 100],
-    backgroundColor: [
-      'rgb(255, 100, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
-  }]
-};
+    function album() {
+        window.location.href = "telaAlbuns.html"
+    }
 
-
-
-
-
-const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-);
-
-
-const myChart2 = new Chart(
-    document.getElementById('myChart2'),
-    config2
-);
-
-
-
-function album(){
-   window.location.href = "telaAlbuns.html"
-}
-
-function sobre() {
-     sessionStorage.ID_USUARIO=undefined;
+    function sobre() {
+        sessionStorage.ID_USUARIO = undefined;
         window.location.href = "../index.html"
     }
+
+
+
+
+
+
 </script>
-</html> 
+
+
+</html>
