@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mason Fan</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="./dash.css">
 </head>
@@ -25,7 +25,7 @@
  <div class="todos">
         <div class="graficos">
             <div class="graficoColuna">
-
+                <h2>Os álbuns que você escutou:</h2>
                 <canvas id="myChart"></canvas>
             </div>
   
@@ -41,7 +41,7 @@
             </div>
             <div class="kpi2">
                 <h2>
-                    A quanatidade total de vezes que você escutou o artista:
+                Soma do tempo base dos álbuns escutados:
                     <div id="tempoEscutado">
                 </h2>
             </div>
@@ -214,8 +214,8 @@
         fetch (`/medidas/buscarTempoMaximo/${idUsuario}`)
         .then(resposta =>resposta.json())
         .then(function(data){
-            console.log("", data)
-            tempoEscutado.innerHTML = data[0].tempo
+            console.log("Aiaiai", data)
+            tempoEscutado.innerHTML = data[0].soma
         } ).catch(function(erro){
             console.log(erro)
         })
@@ -224,16 +224,26 @@
 
 function buscarAlbum(){
         var idUsuario = sessionStorage.ID_USUARIO;
+        var maisEscutado =  ''
+        var maiorRegistro = 0;
         fetch (`/medidas/buscarAlbum/${idUsuario}`)
         .then(resposta =>resposta.json())
         .then(function(data){
             console.log("", data)
-            nomeMaisEscutado.innerHTML = data[0].nomeAlbum
+
+            for (i = 0; i < data.length; i++) {
+            if (data[i].vezes > maiorRegistro) {
+                maiorRegistro = data[i].vezes;
+                maisEscutado = data[i].nomeAlbum
+            }
+        }
+            nomeMaisEscutado.innerHTML = maisEscutado;
         } ).catch(function(erro){
             console.log(erro)
         })
-        
+       
     }
+
 
 
     buscarMedidaMaxima();

@@ -26,23 +26,21 @@ LIMIT 1;`
 
 function buscarTempoMaximo(idUsuario){
 
-   var instrucaoSql = `SELECT SUM(TEMPO) AS tempo FROM album
-JOIN quantidade ON idAlbum = quantidade.fkAlbum
-JOIN usuario ON quantidade.fkAlbum = usuario.idUsuario
+   var instrucaoSql = `SELECT SUM(tempo) as soma FROM album
+JOIN quantidade ON album.idAlbum = quantidade.fkAlbum
+JOIN usuario ON usuario.idUsuario = quantidade.fkUsuario
 WHERE idUsuario = ${idUsuario};`
     return database.executar(instrucaoSql);
 }
 
 
 function buscarAlbum(idUsuario){
-    var instrucaoSql = `SELECT nomeAlbum FROM album
+    var instrucaoSql = `SELECT album.nomeAlbum, quantidade.vezes FROM album
 JOIN quantidade ON idAlbum = quantidade.fkAlbum
 JOIN usuario ON idUsuario = quantidade.fkUsuario
 WHERE idUsuario = ${idUsuario}
-ORDER BY vezes
-LIMIT 1
-;`
-     return database.executar(instrucaoSql);
+ORDER BY vezes;`
+  return database.executar(instrucaoSql);
 }
 
 module.exports = {

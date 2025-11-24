@@ -114,3 +114,25 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+.footer {
+  margin-top: 3.6%;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(6px);
+  color: #EDEDED;
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 3px solid #E85C70;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 -10px 20px rgba(255, 255, 255, 0.05);
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.footer strong {
+  color: #E85C70;
+}
+

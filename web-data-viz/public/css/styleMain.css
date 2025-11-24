@@ -71,7 +71,7 @@ body{
 .text span{
   font-family: "Montserrat", sans-serif;
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.7;
   color: #EDEDED; 
   padding: 50px;
   border-left: 3px solid #E85C70;
@@ -80,7 +80,7 @@ body{
   max-width: 45%;
   margin-top: 3%;
   backdrop-filter: blur(6px); 
-  min-height: 513px;
+  min-height: 483px;
 }
 
 .fotoText{

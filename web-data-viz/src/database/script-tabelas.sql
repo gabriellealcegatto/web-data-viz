@@ -51,4 +51,3 @@ nome2
 JOIN album ON fkAlbum = album.idAlbum
 WHERE fkUsuario = 1;
 
-

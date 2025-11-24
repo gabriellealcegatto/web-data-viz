@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AquaTech | Cadastro</title>
+  <title>Mason Fan</title>
 
   <script src="./js/sessao.js"></script>
 
@@ -82,13 +82,13 @@
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
-    ) {
+    ){ alert("Preencha os campos corretamente!") 
 
     } else {
       setInterval(sumirMensagem, 2000);
     }
 
-
+    if(nomeVar !="" && emailVar !="" && senhaVar !="" && confirmacaoSenhaVar == senhaVar){
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -124,7 +124,7 @@
 
     return false;
   }
-
+  }
 
 
   function sumirMensagem() {
