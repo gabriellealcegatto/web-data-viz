@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./dash.css">
 </head>
 
-<body>
+<body onload="buscarMedidaMaxima(), buscarTempoMaximo(),buscarAlbum()">
 
     <div class="header2">
 
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="container">
-
+ <div class="todos">
         <div class="graficos">
             <div class="graficoColuna">
 
@@ -30,28 +30,38 @@
             </div>
   
         </div>
+       
         <div class="KPIS">
             <div class="kpi1">
 
                 <h2>
-                    O álbum que você mais escutou foi:
+                    A quantidade mais alta escutada do mesmo album foi de:
                     <div id="maisEscutado"></div>
                 </h2>
             </div>
             <div class="kpi2">
                 <h2>
-                    Seu tempo total escutando o artista:
+                    A quanatidade total de vezes que você escutou o artista:
                     <div id="tempoEscutado">
                 </h2>
             </div>
-        </div>
 
+             <div class="kpi3">
+                <h2>
+                    O álbum que você mais escutou:
+                    <div id="nomeMaisEscutado">
+                </h2>
+            </div>
+
+        </div>
+        </div>
 
         <div class="footer">
             <div class="footer-content">
                 <p>© 2025 Site sobre Marilyn Manson — Projeto acadêmico</p>
                 <p>Inspirado no álbum <strong>Mechanical Animals</strong></p>
             </div>
+           
 </body>
 
 <script>
@@ -106,7 +116,7 @@
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Horas',
+                label: 'Vezes',
                 data: [],
                 fill: false,
                 backgroundColor: 'rgb(205, 10, 100)',
@@ -185,9 +195,52 @@
     }
 
 
+    function buscarMedidaMaxima(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        fetch (`/medidas/buscarMedidaMaxima/${idUsuario}`)
+        .then(resposta =>resposta.json())
+        .then(function(data){
+            console.log("", data)
+            maisEscutado.innerHTML = data[0].vezes + "x"
+        } ).catch(function(erro){
+            console.log(erro)
+        })
+        
+    }
 
 
+    function buscarTempoMaximo(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        fetch (`/medidas/buscarTempoMaximo/${idUsuario}`)
+        .then(resposta =>resposta.json())
+        .then(function(data){
+            console.log("", data)
+            tempoEscutado.innerHTML = data[0].tempo
+        } ).catch(function(erro){
+            console.log(erro)
+        })
+        
+    }
 
+function buscarAlbum(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+        fetch (`/medidas/buscarAlbum/${idUsuario}`)
+        .then(resposta =>resposta.json())
+        .then(function(data){
+            console.log("", data)
+            nomeMaisEscutado.innerHTML = data[0].nomeAlbum
+        } ).catch(function(erro){
+            console.log(erro)
+        })
+        
+    }
+
+
+    buscarMedidaMaxima();
+
+buscarTempoMaximo();
+
+buscarAlbum();
 
 </script>
 
